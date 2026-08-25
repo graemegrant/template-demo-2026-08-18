@@ -18,7 +18,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Talk to the house"
-        subtitle="A person answers. Usually Isla. Always within one working day."
+        subtitle="A person answers. Usually Mairi. Always within one working day."
         image={IMG.exterior}
       />
 

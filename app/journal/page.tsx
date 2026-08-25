@@ -10,7 +10,7 @@ import { FadeUp, StaggerGrid, StaggerItem } from '@/components/Motion';
 
 export const metadata: Metadata = {
   title: 'Journal',
-  description: `Notes from ${hotelConfig.name}: the garden, the glen, the kitchen and the people who keep the house.`,
+  description: `Notes from ${hotelConfig.name}: the garden, the bay, the kitchen and the people who keep the house.`,
 };
 
 export default async function JournalPage() {
@@ -22,9 +22,9 @@ export default async function JournalPage() {
     <>
       <PageHero
         eyebrow="The journal"
-        title="Notes from the glen"
-        subtitle="The garden, the kitchen, the hill and the house — written by the people who keep them."
-        image={IMG.forest}
+        title="Notes from the bay"
+        subtitle="The garden, the kitchen, the shore and the house — written by the people who keep them."
+        image={IMG.dunes}
       />
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         {featured && (

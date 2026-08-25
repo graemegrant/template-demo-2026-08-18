@@ -7,7 +7,7 @@ export default function DirectBookingBanner() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-5 px-6 py-7 sm:flex-row lg:px-10">
         <p className="text-center font-body text-sm text-forest sm:text-left">
           <span className="font-medium">Book direct.</span>{' '}
-          The best rate, the best room in your category, and a dram waiting when you arrive.
+          The best rate, the best room in your category, and a warm welcome when you arrive.
         </p>
         <BookButton className="shrink-0 rounded-ctrl border border-forest px-7 py-3.5 font-body text-2xs uppercase tracking-25 text-forest transition-colors duration-300 hover:bg-forest hover:text-parchment">
           Check availability

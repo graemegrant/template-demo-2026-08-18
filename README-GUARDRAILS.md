@@ -63,7 +63,7 @@ npm run lint     # should flag any existing inline hex / arbitrary values, if an
 tsc --noEmit
 ```
 
-If `npm run lint` throws a wall of errors on the existing Craigmore House
+If `npm run lint` throws a wall of errors on the existing Selkie Bay Hotel
 code, that's expected the first time — it means the guardrail is
 catching real pre-existing drift. Fix or explicitly `// eslint-disable`
 with a reason, don't disable the rule globally.

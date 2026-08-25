@@ -4,25 +4,25 @@
  * tokens, point env vars at the new Sanity project + booking engine.
  */
 export const hotelConfig = {
-  name: 'Craigmore House',
-  tagline: 'Highland solitude, done properly.',
+  name: 'The Selkie Bay Hotel',
+  tagline: 'A quiet coastal escape.',
   description:
-    'A twelve-room country house hotel in Highland Perthshire. Open fires, serious cooking, and four hundred acres of silence.',
+    'An eighteen-room boutique hotel on the harbour at North Berwick. Tide, weather, and a working harbour view — not a resort feel.',
   location: {
-    address: 'Perthshire, PH15 2NR',
-    region: 'Perthshire, Scotland',
-    lat: 56.6,
-    lng: -3.9,
+    address: 'North Berwick, East Lothian, EH39',
+    region: 'East Lothian, Scotland',
+    lat: 56.06,
+    lng: -2.72,
   },
   contact: {
-    phone: '+44 (0)1796 000 000',
-    email: 'enquiries@craigmorehouse.com',
-    instagram: 'https://instagram.com/craigmorehouse',
-    facebook: 'https://facebook.com/craigmorehouse',
+    phone: '+44 (0)1620 000 000',
+    email: 'enquiries@selkiebayhotel.com',
+    instagram: 'https://instagram.com/selkiebayhotel',
+    facebook: 'https://facebook.com/selkiebayhotel',
   },
   bookingEngineUrl: process.env.NEXT_PUBLIC_BOOKING_ENGINE_URL || '',
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.craigmorehouse.com',
-  rooms: 12,
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.selkiebayhotel.com',
+  rooms: 18,
   starRating: 4,
   priceRange: '£££',
   checkIn: '3.00pm',

@@ -102,7 +102,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <FadeUp>
             <SectionLabel>While you’re here</SectionLabel>
-            <h2 className="mt-5 font-heading text-4xl font-medium text-ink">More from the estate</h2>
+            <h2 className="mt-5 font-heading text-4xl font-medium text-ink">More from the bay</h2>
           </FadeUp>
           <StaggerGrid className="mt-12 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((e) => (

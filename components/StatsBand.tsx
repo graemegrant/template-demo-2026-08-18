@@ -46,10 +46,10 @@ function StatItem({ stat }: { stat: Stat }) {
 }
 
 const STATS: Stat[] = [
-  { value: 12, render: (n) => `${n}`, label: 'Rooms, no more' },
-  { value: 1863, render: (n) => `${n}`, label: 'Same family of thought' },
-  { value: 19, render: (n) => `${n} mi`, label: 'To the nearest traffic light' },
-  { value: 400, render: (n) => `${n.toLocaleString()}`, label: 'Acres of glen to yourselves' },
+  { value: 18, render: (n) => `${n}`, label: 'Rooms, no more' },
+  { value: 1897, render: (n) => `${n}`, label: 'Watching the same tide' },
+  { value: 90, render: (n) => `${n}s`, label: 'To the harbour wall' },
+  { value: 3, render: (n) => `${n} mi`, label: 'Of sand at Yellowcraig' },
 ];
 
 export default function StatsBand() {

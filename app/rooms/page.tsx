@@ -12,7 +12,7 @@ import { FadeUp } from '@/components/Motion';
 
 export const metadata: Metadata = {
   title: 'Rooms & Suites',
-  description: `The twelve rooms of ${hotelConfig.name}: classic rooms, deluxe doubles and suites, each facing the glen, the garden or the river.`,
+  description: `The eighteen rooms of ${hotelConfig.name}: classic rooms, deluxe doubles and suites, each facing the harbour, the garden or the bay.`,
 };
 
 export default async function RoomsPage() {
@@ -23,15 +23,15 @@ export default async function RoomsPage() {
       <PageHero
         eyebrow="Stay"
         title="Rooms & suites"
-        subtitle="Twelve rooms, no two alike, every one facing something worth waking up to."
+        subtitle="Eighteen rooms, no two alike, every one facing something worth waking up to."
         image={IMG.room1}
       />
       <TrustStrip />
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         <FadeUp>
           <p className="max-w-2xl font-body text-base font-light leading-body text-ink/80">
-            Every room comes with breakfast, the run of four hundred acres, and housekeeping that
-            believes in hospital corners. Suites add space and sitting rooms; Classics add the
+            Every room comes with breakfast, the run of the harbour and the shore, and housekeeping
+            that believes in hospital corners. Suites add space and sitting rooms; Classics add the
             particular smugness of having chosen well for less.
           </p>
         </FadeUp>

@@ -9,14 +9,14 @@ import { FadeUp, StaggerGrid, StaggerItem } from '@/components/Motion';
 
 export const metadata: Metadata = {
   title: 'Weddings',
-  description: `Weddings at ${hotelConfig.name}: the whole house, the south lawn and four hundred acres, for one wedding at a time.`,
+  description: `Weddings at ${hotelConfig.name}: the whole house, the harbour lawn and the bay beyond it, for one wedding at a time.`,
 };
 
 const venues = [
   {
-    name: 'The South Lawn',
+    name: 'The Harbour Lawn',
     capacity: 'Up to 120 guests',
-    detail: 'Ceremonies under open sky with the glen as witness. A marquee takes the weather question off the table; the view refuses to be upstaged either way.',
+    detail: 'Ceremonies under open sky with the bay as witness. A marquee takes the weather question off the table; the view refuses to be upstaged either way.',
     image: IMG.wedding1,
   },
   {
@@ -52,9 +52,9 @@ export default function WeddingsPage() {
               Exclusive use, as standard
             </h2>
             <p className="mt-6 font-body text-base font-light leading-body text-ink/80">
-              When you marry at Craigmore, the house is yours: all twelve rooms, the lawns, the
+              When you marry at Selkie Bay, the house is yours: all eighteen rooms, the lawn, the
               library, the dining room, the staff. Your guests wake up where the party ended. Our
-              events team — which is to say, Eleanor and whoever she deems worthy — handles
+              events team — which is to say, Fiona and whoever she deems worthy — handles
               everything from celebrant to ceilidh band, with one planning visit each season and
               an opinion available whenever asked.
             </p>
@@ -64,7 +64,7 @@ export default function WeddingsPage() {
             </p>
           </FadeUp>
           <FadeUp delay={0.15}>
-            <div className="relative aspect-portrait">
+            <div className="relative aspect-portrait overflow-hidden rounded-img">
               <Image src={IMG.wedding2} alt="A wedding table dressed in the dining room" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           </FadeUp>
@@ -81,7 +81,7 @@ export default function WeddingsPage() {
             {venues.map((v) => (
               <StaggerItem key={v.name}>
                 <article>
-                  <div className="relative aspect-landscape overflow-hidden bg-parchment">
+                  <div className="relative aspect-landscape overflow-hidden rounded-img bg-parchment">
                     <Image src={v.image} alt={v.name} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
                   </div>
                   <div className="pt-6">

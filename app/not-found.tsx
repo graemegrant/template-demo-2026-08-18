@@ -12,8 +12,8 @@ export default function NotFound() {
           You’ve wandered off the path.
         </h1>
         <p className="mt-6 font-body text-base font-light leading-relaxed text-parchment/75">
-          It happens on four hundred acres. The page you’re after isn’t here — but the house is
-          just over the rise, and the fire is lit.
+          It happens on a working harbour. The page you’re after isn’t here — but the house is
+          just up from the water, and the fire is lit.
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link

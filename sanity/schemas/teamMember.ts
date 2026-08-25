@@ -11,7 +11,7 @@ export default defineType({
     defineField({ name: 'headshot', type: 'image', options: { hotspot: true } }),
     defineField({
       name: 'department', type: 'string',
-      options: { list: ['Management', 'Kitchen', 'Front of House', 'Housekeeping', 'Estate'] },
+      options: { list: ['Management', 'Kitchen', 'Front of House', 'Housekeeping', 'Grounds'] },
     }),
     defineField({ name: 'displayOrder', type: 'number' }),
   ],

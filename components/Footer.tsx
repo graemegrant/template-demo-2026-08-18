@@ -119,7 +119,7 @@ export default function Footer() {
           <div>
             <p className="font-body text-2xs uppercase tracking-30 text-gold">The seasonal letter</p>
             <p className="mt-5 font-body text-sm font-light leading-relaxed text-parchment/70">
-              What the glen is doing, what the kitchen is planning, and first word on offers. Four letters a year.
+              What the tide is doing, what the kitchen is planning, and first word on offers. Four letters a year.
             </p>
             <div className="mt-6">
               <NewsletterForm />

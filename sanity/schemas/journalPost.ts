@@ -9,7 +9,7 @@ export default defineType({
     defineField({ name: 'slug', type: 'slug', options: { source: 'title' }, validation: (r) => r.required() }),
     defineField({
       name: 'category', type: 'string',
-      options: { list: ['The Glen', 'Garden', 'Provenance', 'Outdoors', 'House news'] },
+      options: { list: ['The Bay', 'Garden', 'Provenance', 'Outdoors', 'House news'] },
     }),
     defineField({ name: 'author', type: 'string' }),
     defineField({ name: 'publishedAt', type: 'date' }),

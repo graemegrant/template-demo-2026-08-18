@@ -7,7 +7,7 @@ import { FadeUp, StaggerGrid, StaggerItem } from '@/components/Motion';
 
 export const metadata: Metadata = {
   title: 'Location & Directions',
-  description: `Finding ${hotelConfig.name}: directions by road, rail and air, and what to see in Highland Perthshire once you arrive.`,
+  description: `Finding ${hotelConfig.name}: directions by road, rail and air, and what to see on the East Lothian coast once you arrive.`,
 };
 
 const mapSrc = `https://www.google.com/maps?q=${hotelConfig.location.lat},${hotelConfig.location.lng}&z=11&output=embed`;
@@ -17,9 +17,9 @@ export default function LocationPage() {
     <>
       <PageHero
         eyebrow="Finding us"
-        title="End of the road, start of the glen"
-        subtitle={`${hotelConfig.location.address} — ninety minutes from Edinburgh, four miles from the nearest reason to hurry.`}
-        image={IMG.glen}
+        title="End of the road, start of the bay"
+        subtitle={`${hotelConfig.location.address} — forty minutes from Edinburgh, and no reason at all to hurry.`}
+        image={IMG.bay}
       />
 
       {/* Directions grid */}
@@ -45,7 +45,7 @@ export default function LocationPage() {
         <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
           <FadeUp>
             <SectionLabel>The map</SectionLabel>
-            <h2 className="mt-5 font-heading text-4xl font-medium text-ink">Where the glen narrows</h2>
+            <h2 className="mt-5 font-heading text-4xl font-medium text-ink">Where the high street meets the water</h2>
             <div className="mt-10 aspect-video w-full border border-ink/10 bg-parchment">
               <iframe
                 src={mapSrc}
@@ -56,7 +56,7 @@ export default function LocationPage() {
               />
             </div>
             <p className="mt-4 font-body text-xs text-ink/60">
-              Postcode for satnavs: {hotelConfig.location.address.split(',').pop()?.trim()} — then follow the stone herons, not the satnav’s despair.
+              Postcode for satnavs: {hotelConfig.location.address.split(',').pop()?.trim()} — then follow the harbour signs, not the satnav’s despair.
             </p>
           </FadeUp>
         </div>
@@ -65,7 +65,7 @@ export default function LocationPage() {
       {/* Nearby attractions */}
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         <FadeUp>
-          <SectionLabel>Beyond the estate</SectionLabel>
+          <SectionLabel>Beyond the harbour</SectionLabel>
           <h2 className="mt-5 font-heading text-4xl font-medium text-ink md:text-5xl">Worth leaving the fire for</h2>
         </FadeUp>
         <StaggerGrid className="mt-14 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">

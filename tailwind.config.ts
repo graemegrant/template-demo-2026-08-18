@@ -4,7 +4,7 @@ import type { Config } from 'tailwindcss';
  * Colour tokens — the single place to re-skin for a new client.
  * Names are semantic so component classes never change between clients.
  *
- * Craigmore heritage palette (2026 refresh): peat, stone, aged brass.
+ * Selkie Bay coastal palette (2026 refresh): navy, seafoam, driftwood.
  * Depth comes from gradient merges (see globals.css) rather than flat fills.
  */
 const config: Config = {
@@ -12,13 +12,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        forest: '#2B2119',      // peat — primary dark
-        forestdeep: '#1B1510',  // deepest peat — footers, gradients
-        gold: '#A67C3D',        // aged brass — accents on light
-        goldbright: '#E8C083',  // bright brass — accents on dark (contrast-safe)
-        parchment: '#EFEAE1',   // stone — primary light
-        warmgrey: '#E3DCCF',    // deep stone — alt bands, cards
-        ink: '#241D16',         // text
+        forest: '#1B2A3A',      // deep navy — primary dark
+        forestdeep: '#10192A',  // midnight navy — footers, gradients
+        gold: '#B8926A',        // driftwood tan — accents on light
+        goldbright: '#E8C88F',  // sand gold — accents on dark (contrast-safe)
+        parchment: '#F1EDE6',   // sea salt white — primary light
+        warmgrey: '#D9E2E1',    // seafoam grey — alt bands, cards
+        ink: '#22262B',         // charcoal ink — text
       },
       borderRadius: {
         ctrl: '10px',   // buttons, inputs — contour-bias: approachable controls

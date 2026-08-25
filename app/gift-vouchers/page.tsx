@@ -17,9 +17,9 @@ export default function GiftVouchersPage() {
     <>
       <PageHero
         eyebrow="Gift vouchers"
-        title="Give someone the glen"
+        title="Give someone the bay"
         subtitle="Posted in proper envelopes with wax we take slightly too seriously, or emailed within the hour."
-        image={IMG.loch}
+        image={IMG.sea}
       />
 
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
@@ -35,7 +35,7 @@ export default function GiftVouchersPage() {
           {voucherTypes.map((v) => (
             <StaggerItem key={v.name}>
               <article className="flex h-full flex-col border border-ink/10">
-                <div className="relative aspect-landscape overflow-hidden bg-warmgrey">
+                <div className="relative aspect-landscape overflow-hidden rounded-img bg-warmgrey">
                   <Image src={v.image} alt={v.name} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover" />
                 </div>
                 <div className="flex grow flex-col p-8">

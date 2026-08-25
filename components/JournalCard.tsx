@@ -19,8 +19,8 @@ export default function JournalCard({
 }) {
   if (variant === 'featured') {
     return (
-      <Link href={`/journal/${post.slug}`} className="group grid gap-0 bg-forest md:grid-cols-2">
-        <div className="relative aspect-landscape overflow-hidden rounded-img md:aspect-auto md:min-h-480px">
+      <Link href={`/journal/${post.slug}`} className="group grid gap-0 overflow-hidden rounded-img bg-forest md:grid-cols-2">
+        <div className="relative aspect-landscape overflow-hidden md:aspect-auto md:min-h-480px">
           <Image
             src={imgSrc(post.heroImage)}
             alt={post.title}

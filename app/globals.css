@@ -14,9 +14,9 @@
   body {
     /* Ambient colour merge instead of a flat parchment fill — depth without noise */
     background:
-      radial-gradient(1100px 700px at 85% -5%, rgba(166, 124, 61, 0.08), transparent 60%),
-      radial-gradient(900px 700px at -10% 40%, rgba(90, 99, 80, 0.07), transparent 55%),
-      linear-gradient(180deg, #f2ede4 0%, #efeae1 40%, #eae3d6 100%);
+      radial-gradient(1100px 700px at 85% -5%, rgba(184, 146, 106, 0.08), transparent 60%),
+      radial-gradient(900px 700px at -10% 40%, rgba(27, 42, 58, 0.06), transparent 55%),
+      linear-gradient(180deg, #f4f0e9 0%, #f1ede6 40%, #ece6db 100%);
     @apply font-body text-ink antialiased;
   }
   /* Paper grain — materiality signal, fixed so it never scrolls oddly */
@@ -58,10 +58,10 @@ input[type='date'] {
   color-scheme: light;
 }
 
-/* GlenMoment sticky panel — same brass/peat merge as the body background,
+/* TideMoment sticky panel — same navy/gold merge as the body background,
    scoped to a class so the component never inlines raw hex. */
-.bg-glen {
+.bg-tide {
   background:
-    radial-gradient(900px 500px at 80% 15%, rgba(194, 154, 91, 0.14), transparent 60%),
-    linear-gradient(175deg, #241d16 0%, #2b2119 45%, #1b1510 100%);
+    radial-gradient(900px 500px at 80% 15%, rgba(184, 146, 106, 0.14), transparent 60%),
+    linear-gradient(175deg, #22262b 0%, #1b2a3a 45%, #10192a 100%);
 }

@@ -19,7 +19,7 @@ import TestimonialSlider from '@/components/TestimonialSlider';
 import DirectBookingBanner from '@/components/DirectBookingBanner';
 import { FadeUp, StaggerGrid, StaggerItem } from '@/components/Motion';
 import JournalCard from '@/components/JournalCard';
-import GlenMoment from '@/components/GlenMoment';
+import TideMoment from '@/components/TideMoment';
 import StatsBand from '@/components/StatsBand';
 import { BookButton } from '@/components/BookingModal';
 
@@ -48,12 +48,12 @@ export default async function HomePage() {
           <FadeUp>
             <SectionLabel>The house</SectionLabel>
             <h2 className="mt-5 font-heading text-4xl font-medium leading-tight text-ink md:text-5xl">
-              Twelve rooms. Four hundred acres. No agenda.
+              Eighteen rooms. One working harbour. No agenda.
             </h2>
             <p className="mt-6 font-body text-base font-light leading-body text-ink/80">
-              Craigmore House sits where the glen narrows and the road gives up — a Victorian
-              shooting lodge rebuilt around the things that matter: open fires, deep baths,
-              a kitchen that answers to the estate rather than to fashion, and silence of a
+              The Selkie Bay Hotel sits where the high street meets the harbour wall — a Victorian
+              townhouse rebuilt around the things that matter: open fires, deep baths,
+              a kitchen that answers to the tide rather than to fashion, and silence of a
               quality you will want to take home.
             </p>
             <Link
@@ -64,7 +64,7 @@ export default async function HomePage() {
             </Link>
           </FadeUp>
           <FadeUp delay={0.15}>
-            <div className="relative aspect-portrait">
+            <div className="relative aspect-portrait overflow-hidden rounded-img">
               <Image src={IMG.exterior} alt="The house from the south lawn" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           </FadeUp>
@@ -74,8 +74,8 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* The Glen — the one authored scroll moment */}
-      <GlenMoment />
+      {/* The Bay — the one authored scroll moment */}
+      <TideMoment />
 
       {/* Rooms teaser */}
       <section className="bg-warmgrey">
@@ -86,7 +86,7 @@ export default async function HomePage() {
               <h2 className="mt-5 font-heading text-4xl font-medium text-ink md:text-5xl">Rooms & suites</h2>
             </div>
             <Link href="/rooms" className="font-body text-2xs uppercase tracking-25 text-gold transition-colors hover:text-forest">
-              All twelve rooms →
+              All eighteen rooms →
             </Link>
           </FadeUp>
           <StaggerGrid className="mt-14 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
@@ -122,11 +122,11 @@ export default async function HomePage() {
           <FadeUp>
             <SectionLabel variant="parchment">The dining room</SectionLabel>
             <blockquote className="mt-8 font-heading text-3xl font-medium italic leading-snug text-parchment md:text-5xl">
-              “The larder is the glen itself — the river, the hill, and a walled garden that has
-              fed this house since 1847.”
+              “The larder is the shore itself — the rock, the tide, and a walled garden that has
+              fed this house since 1868.”
             </blockquote>
             <p className="mt-8 font-body text-2xs uppercase tracking-25 text-parchment/60">
-              Calum Ross, Head Chef
+              Euan Tait, Head Chef
             </p>
             <Link
               href="/dining"
@@ -161,19 +161,19 @@ export default async function HomePage() {
         <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
             <FadeUp>
-              <div className="relative aspect-landscape">
-                <Image src={IMG.glen} alt="The glen below the house" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+              <div className="relative aspect-landscape overflow-hidden rounded-img">
+                <Image src={IMG.bay} alt="The bay below the house" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
               </div>
             </FadeUp>
             <FadeUp delay={0.15}>
               <SectionLabel>Finding us</SectionLabel>
               <h2 className="mt-5 font-heading text-4xl font-medium leading-tight text-ink md:text-5xl">
-                Ninety minutes from Edinburgh. A world from anywhere.
+                Forty minutes from Edinburgh. A world from anywhere.
               </h2>
               <p className="mt-6 font-body text-base font-light leading-body text-ink/80">
-                Off the A9 at Pitlochry, four miles up a single-track road that ends at our gates.
-                Direct trains from London, Edinburgh and Inverness; we collect from the platform.
-                The last half mile is gravel, hills, and the growing suspicion that you have made
+                Off the A1 at East Linton, six miles up the coast road that ends at our harbour.
+                Direct trains from London and Edinburgh Waverley; we collect from the platform.
+                The last half mile is cobbles, gulls, and the growing suspicion that you have made
                 an excellent decision.
               </p>
               <Link
@@ -222,7 +222,7 @@ export default async function HomePage() {
           <FadeUp>
             <SectionLabel variant="parchment">The next step</SectionLabel>
             <h2 className="mt-6 font-heading text-4xl font-medium leading-tight text-parchment md:text-6xl">
-              The glen will still be here.<br />Your dates may not.
+              The tide will still be here.<br />Your dates may not.
             </h2>
             <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <BookButton className="w-64 rounded-ctrl bg-gold px-8 py-4 font-body text-2xs uppercase tracking-25 text-forest transition-colors duration-300 hover:bg-parchment sm:w-auto">

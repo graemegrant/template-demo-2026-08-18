@@ -1,7 +1,7 @@
 'use client';
 
 /**
- * GlenMoment — the single authored scroll moment on the homepage.
+ * TideMoment — the single authored scroll moment on the homepage.
  * A sticky full-viewport panel inside a tall track; the sentence
  * illuminates word-by-word as the visitor scrolls through.
  *
@@ -14,14 +14,16 @@ import { useScroll, useTransform, useMotionValueEvent, useReducedMotion } from '
 import { useState } from 'react';
 
 const SENTENCE: { text: string; brass?: boolean }[] = [
-  { text: 'The' }, { text: 'nearest' }, { text: 'traffic' }, { text: 'light' }, { text: 'is' },
-  { text: 'nineteen', brass: true }, { text: 'miles', brass: true }, { text: 'away.', brass: true },
-  { text: 'We' }, { text: 'measured.' },
-  { text: 'Nobody' }, { text: 'here' }, { text: 'has' }, { text: 'ever' },
-  { text: 'regretted' }, { text: 'the' }, { text: 'drive.' },
+  { text: 'Every' }, { text: 'spring,' },
+  { text: 'a', brass: true }, { text: 'hundred', brass: true }, { text: 'and', brass: true },
+  { text: 'fifty', brass: true }, { text: 'thousand', brass: true }, { text: 'gannets', brass: true },
+  { text: 'come' }, { text: 'home' }, { text: 'to' }, { text: 'the' }, { text: 'rock' },
+  { text: 'in' }, { text: 'our' }, { text: 'bay.' },
+  { text: 'We' }, { text: 'have' }, { text: 'counted.' },
+  { text: 'Nobody' }, { text: 'here' }, { text: 'has' }, { text: 'tired' }, { text: 'of' }, { text: 'the' }, { text: 'view.' },
 ];
 
-export default function GlenMoment() {
+export default function TideMoment() {
   const trackRef = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
   const [lit, setLit] = useState(0);
@@ -37,10 +39,10 @@ export default function GlenMoment() {
 
   return (
     <div ref={trackRef} className="relative h-240vh md:h-260vh">
-      <div className="bg-glen sticky top-0 flex h-screen items-center overflow-hidden">
+      <div className="bg-tide sticky top-0 flex h-screen items-center overflow-hidden">
         <div className="relative z-10 mx-auto w-full max-w-6xl px-6 lg:px-10">
           <p className="font-body text-2xs uppercase tracking-30 text-goldbright">
-            The glen
+            The bay
           </p>
           <p className="mt-8 max-w-20ch font-heading text-3xl leading-heading text-parchment md:text-5xl lg:text-6xl">
             {SENTENCE.map((w, i) => (

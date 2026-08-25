@@ -9,7 +9,7 @@ import { FadeUp, StaggerGrid, StaggerItem } from '@/components/Motion';
 
 export const metadata: Metadata = {
   title: 'Dining',
-  description: `The dining room at ${hotelConfig.name}: estate cooking by head chef Calum Ross — the river, the hill and the walled garden, in season and in order.`,
+  description: `The dining room at ${hotelConfig.name}: harbour cooking by head chef Euan Tait — the rock, the tide and the walled garden, in season and in order.`,
 };
 
 const chef = team.find((t) => t.role === 'Head Chef');
@@ -19,8 +19,8 @@ export default function DiningPage() {
     <>
       <PageHero
         eyebrow="The dining room"
-        title="Cooking that answers to the glen"
-        subtitle="One dining room, thirty covers, a kitchen fed by the river, the hill and a walled garden planted in 1847."
+        title="Cooking that answers to the tide"
+        subtitle="One dining room, thirty covers, a kitchen fed by the rock, the harbour boats and a walled garden planted in 1868."
         image={IMG.dining1}
         tall
       />
@@ -35,13 +35,13 @@ export default function DiningPage() {
             </h2>
             <p className="mt-6 font-body text-base font-light leading-body text-ink/80">
               The menu is written daily, in pencil, after the kitchen has spoken to the gardener,
-              the ghillie and the weather. Venison from the hill, salmon when the river allows,
-              vegetables that were soil-side at dawn. The wine cellar leans old-world; the whisky
+              the boats and the weather. Lobster from the harbour, halibut when the boats allow,
+              vegetables that were soil-side at dawn. The wine cellar leans old-world; the gin
               shelf leans local; the portions lean generous.
             </p>
           </FadeUp>
           <FadeUp delay={0.15}>
-            <div className="relative aspect-portrait">
+            <div className="relative aspect-portrait overflow-hidden rounded-img">
               <Image src={IMG.food1} alt="A dish from the tasting menu" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           </FadeUp>
@@ -55,7 +55,7 @@ export default function DiningPage() {
             <SectionLabel>The menus</SectionLabel>
             <h2 className="mt-5 font-heading text-4xl font-medium text-ink md:text-5xl">What the day allows</h2>
             <p className="mt-5 max-w-xl font-body text-sm font-light leading-relaxed text-ink/70">
-              Sample menus — the kitchen rewrites them daily, and the glen has final approval.
+              Sample menus — the kitchen rewrites them daily, and the tide has final approval.
             </p>
           </FadeUp>
           <StaggerGrid className="mt-14 grid gap-10 lg:grid-cols-3">
@@ -83,7 +83,7 @@ export default function DiningPage() {
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
           <FadeUp>
-            <div className="relative aspect-landscape">
+            <div className="relative aspect-landscape overflow-hidden rounded-img">
               <Image src={IMG.dining2} alt="The private dining room" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
             </div>
           </FadeUp>
@@ -112,7 +112,7 @@ export default function DiningPage() {
           <div className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-32">
             <div className="grid items-center gap-12 lg:grid-cols-360-1fr lg:gap-24">
               <FadeUp>
-                <div className="relative aspect-tall">
+                <div className="relative aspect-tall overflow-hidden rounded-img">
                   <Image src={String(chef.headshot)} alt={chef.name} fill sizes="(min-width: 1024px) 360px, 100vw" className="object-cover" />
                 </div>
               </FadeUp>

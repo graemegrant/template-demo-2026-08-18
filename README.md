@@ -1,4 +1,4 @@
-# Craigmore House — Next.js 15 Hotel Website
+# The Selkie Bay Hotel — Next.js 15 Hotel Website
 
 Production-ready luxury hotel website. Clone this repo and update `hotel.config.ts` to rebrand for any property.
 
@@ -16,8 +16,8 @@ Production-ready luxury hotel website. Clone this repo and update `hotel.config.
 
 ```bash
 # 1. Clone and install
-git clone <repo> craigmore-house
-cd craigmore-house
+git clone <repo> selkie-bay-hotel
+cd selkie-bay-hotel
 npm install           # or: pnpm install
 
 # 2. Copy env template
@@ -44,7 +44,7 @@ NEXT_PUBLIC_SANITY_DATASET=production
 NEXT_PUBLIC_BOOKING_ENGINE_URL=
 
 # Public site URL (used for sitemap + OG tags)
-NEXT_PUBLIC_SITE_URL=https://www.craigmorehouse.com
+NEXT_PUBLIC_SITE_URL=https://www.selkiebayhotel.com
 
 # Resend — leave blank to log emails to console only
 RESEND_API_KEY=

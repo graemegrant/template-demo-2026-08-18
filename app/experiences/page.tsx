@@ -11,7 +11,7 @@ import { FadeUp, StaggerGrid, StaggerItem } from '@/components/Motion';
 
 export const metadata: Metadata = {
   title: 'Experiences',
-  description: `Whisky, water, hill and hawk — the estate experiences at ${hotelConfig.name}, all arranged by the house, all starting at the front door.`,
+  description: `Gin, water, rock and shore — the experiences at ${hotelConfig.name}, all arranged by the house, all starting at the front door.`,
 };
 
 export default async function ExperiencesPage() {
@@ -20,7 +20,7 @@ export default async function ExperiencesPage() {
   return (
     <>
       <PageHero
-        eyebrow="The estate"
+        eyebrow="The bay"
         title="Days, properly spent"
         subtitle="Everything below starts at the front door and is arranged by the house. Bring boots; we have the rest."
         image={IMG.walk}
@@ -28,8 +28,8 @@ export default async function ExperiencesPage() {
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         <FadeUp>
           <p className="max-w-2xl font-body text-base font-light leading-body text-ink/80">
-            Four hundred acres earn their keep. The river holds salmon, the hill holds deer, the
-            cellar holds the estate blend, and the team holds firm opinions on the correct order
+            The coast earns its keep. The rock holds gannets, the water holds seals, the
+            cellar holds the house gin, and the team holds firm opinions on the correct order
             in which to enjoy them. Book ahead or decide at breakfast — both work.
           </p>
         </FadeUp>
