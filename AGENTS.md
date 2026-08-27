@@ -92,6 +92,30 @@ See `SANITY-SCHEMA.md` for the six content collections.
 - JSON-LD (`LodgingBusiness`, `HotelRoom`, `BlogPosting`) and
   `sitemap.ts`/`robots.ts` must not be removed or broken by a page change.
 
+## 5. CRO constraints (do not remove without sign-off)
+
+- `BookButton` / `BookingModal` must remain reachable from every page —
+  this is the direct-booking conversion path the whole product exists
+  to protect.
+- `MobileBookBar` (sticky mobile booking bar) stays on all client sites.
+- `TrustStrip` items (from `hotel.config.ts`) stay above the fold on the
+  homepage.
+- JSON-LD (`LodgingBusiness`, `HotelRoom`, `BlogPosting`) and
+  `sitemap.ts`/`robots.ts` must not be removed or broken by a page change.
+
+- CTA label is always "Check availability," never "Book now" — opens in
+  the same tab, not a new tab.
+
+- "Best rate guaranteed" language (or equivalent, in the site's own
+  voice) must appear in at least four places across the site — this is
+  the single most commonly under-delivered CRO detail in past builds.
+
+- Only one primary CTA per viewport/section — don't stack competing
+  calls to action.
+
+- Animation performance budget: heavy motion measurably hurts mobile
+  conversion — keep hero/scroll animations light on mobile viewports.
+  
 ## 6. Local Experiences
 
 Local Experiences is positioned as regional-exclusivity content — a
