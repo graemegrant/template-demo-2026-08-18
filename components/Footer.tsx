@@ -75,6 +75,9 @@ export default function Footer() {
               {hotelConfig.location.address}<br />
               {hotelConfig.location.region}
             </address>
+            <p className="mt-6 font-body text-sm font-light leading-relaxed text-parchment/70">
+              Book direct and the rate is always the best one going — guaranteed.
+            </p>
           </div>
 
           <div>
