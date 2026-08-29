@@ -1,8 +1,11 @@
 import type { Config } from 'tailwindcss';
+import { palette } from './lib/tokens';
 
 /**
  * Colour tokens — the single place to re-skin for a new client.
  * Names are semantic so component classes never change between clients.
+ * The seven hex values live in `lib/tokens.ts` so server-side image
+ * generation can share them; edit them there, not here.
  *
  * Selkie Bay coastal palette (2026 refresh): navy, seafoam, driftwood.
  * Depth comes from gradient merges (see globals.css) rather than flat fills.
@@ -11,15 +14,7 @@ const config: Config = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   theme: {
     extend: {
-      colors: {
-        forest: '#1B2A3A',      // deep navy — primary dark
-        forestdeep: '#10192A',  // midnight navy — footers, gradients
-        gold: '#B8926A',        // driftwood tan — accents on light
-        goldbright: '#E8C88F',  // sand gold — accents on dark (contrast-safe)
-        parchment: '#F1EDE6',   // sea salt white — primary light
-        warmgrey: '#D9E2E1',    // seafoam grey — alt bands, cards
-        ink: '#22262B',         // charcoal ink — text
-      },
+      colors: { ...palette },
       borderRadius: {
         ctrl: '10px',   // buttons, inputs — contour-bias: approachable controls
         card: '18px',   // cards, tiles
@@ -87,6 +82,7 @@ const config: Config = {
         '260vh': '260vh',
       },
       minHeight: {
+        '85vh': '85vh',
         '78vh': '78vh',
         '58vh': '58vh',
         '480px': '480px',

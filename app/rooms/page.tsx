@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
 import { hotelConfig } from '@/hotel.config';
+import { pageMetadata } from '@/lib/seo';
 import { sanityFetch } from '@/lib/sanity';
 import { ROOMS_QUERY } from '@/lib/queries';
 import { rooms as fallbackRooms, IMG } from '@/lib/data';
@@ -10,10 +10,11 @@ import TrustStrip from '@/components/TrustStrip';
 import DirectBookingBanner from '@/components/DirectBookingBanner';
 import { FadeUp } from '@/components/Motion';
 
-export const metadata: Metadata = {
-  title: 'Rooms & Suites',
+export const metadata = pageMetadata({
+  title: `Rooms & Suites in ${hotelConfig.location.locality}`,
   description: `The eighteen rooms of ${hotelConfig.name}: classic rooms, deluxe doubles and suites, each facing the harbour, the garden or the bay.`,
-};
+  path: '/rooms',
+});
 
 export default async function RoomsPage() {
   const rooms = await sanityFetch<Room[]>(ROOMS_QUERY, {}, fallbackRooms);

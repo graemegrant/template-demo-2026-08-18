@@ -9,19 +9,21 @@ export default function PageHero({
   title,
   subtitle,
   image,
+  imageAlt,
   tall = false,
 }: {
   eyebrow: string;
   title: string;
   subtitle?: string;
   image: unknown;
+  imageAlt?: string;
   tall?: boolean;
 }) {
   return (
     <section className={`relative flex items-end ${tall ? 'min-h-78vh' : 'min-h-58vh'} bg-forest`}>
       <Image
         src={imgSrc(image)}
-        alt={title}
+        alt={imageAlt ?? title}
         fill
         priority
         sizes="100vw"
