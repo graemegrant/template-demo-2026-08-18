@@ -1,16 +1,17 @@
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { hotelConfig } from '@/hotel.config';
+import { pageMetadata } from '@/lib/seo';
 import { IMG, menus, team } from '@/lib/data';
 import PageHero from '@/components/PageHero';
 import SectionLabel from '@/components/SectionLabel';
 import { FadeUp, StaggerGrid, StaggerItem } from '@/components/Motion';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Dining',
   description: `The dining room at ${hotelConfig.name}: harbour cooking by head chef Euan Tait — the rock, the tide and the walled garden, in season and in order.`,
-};
+  path: '/dining',
+});
 
 const chef = team.find((t) => t.role === 'Head Chef');
 

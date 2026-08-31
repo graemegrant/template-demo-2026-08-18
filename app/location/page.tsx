@@ -1,14 +1,15 @@
-import type { Metadata } from 'next';
 import { hotelConfig } from '@/hotel.config';
+import { pageMetadata } from '@/lib/seo';
 import { directions, attractions, IMG } from '@/lib/data';
 import PageHero from '@/components/PageHero';
 import SectionLabel from '@/components/SectionLabel';
 import { FadeUp, StaggerGrid, StaggerItem } from '@/components/Motion';
 
-export const metadata: Metadata = {
-  title: 'Location & Directions',
+export const metadata = pageMetadata({
+  title: `Location & Directions — ${hotelConfig.location.locality}`,
   description: `Finding ${hotelConfig.name}: directions by road, rail and air, and what to see on the East Lothian coast once you arrive.`,
-};
+  path: '/location',
+});
 
 const mapSrc = `https://www.google.com/maps?q=${hotelConfig.location.lat},${hotelConfig.location.lng}&z=11&output=embed`;
 

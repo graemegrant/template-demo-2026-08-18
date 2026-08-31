@@ -9,16 +9,44 @@ export const hotelConfig = {
   description:
     'An eighteen-room boutique hotel on the harbour at North Berwick. Tide, weather, and a working harbour view — not a resort feel.',
   location: {
-    address: 'North Berwick, East Lothian, EH39',
-    region: 'East Lothian, Scotland',
+    // Structured parts — used for schema.org PostalAddress and local SEO.
+    // Fill every field with the real address before launch (see
+    // NEW-CLIENT-CHECKLIST.md §2). Vague addresses break hotel rich results.
+    street: '1 Victoria Road',
+    locality: 'North Berwick',
+    region: 'East Lothian',
+    postalCode: 'EH39 4JL',
+    country: 'GB',
+    // Human-readable single line for footers / contact page.
+    address: '1 Victoria Road, North Berwick, East Lothian, EH39 4JL',
+    // Longer display label used in hero eyebrow / footer legal line.
+    regionLabel: 'East Lothian, Scotland',
     lat: 56.06,
     lng: -2.72,
   },
   contact: {
-    phone: '+44 (0)1620 000 000',
+    // Display form (spacing, national prefix in brackets).
+    phone: '+44 (0)1620 892 255',
+    // Dialable E.164 form — used for tel: links and schema.org telephone.
+    // Never derive this from `phone` at runtime; keep it explicit.
+    phoneHref: '+441620892255',
     email: 'enquiries@selkiebayhotel.com',
     instagram: 'https://instagram.com/selkiebayhotel',
     facebook: 'https://facebook.com/selkiebayhotel',
+  },
+  /** SEO copy that varies per client. */
+  seo: {
+    /** Short human descriptor used in the homepage <title>. */
+    descriptor: 'Boutique Hotel',
+    /** Location phrase appended to titles and used in fallback meta. */
+    locationLabel: 'North Berwick, East Lothian',
+    /**
+     * Emit an aggregateRating in the LodgingBusiness JSON-LD, derived from
+     * the featured testimonials. Only set true once those testimonials are
+     * genuine, verifiable guest reviews — a fabricated rating risks a
+     * Google manual action.
+     */
+    publishAggregateRating: false,
   },
   bookingEngineUrl: process.env.NEXT_PUBLIC_BOOKING_ENGINE_URL || '',
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.selkiebayhotel.com',

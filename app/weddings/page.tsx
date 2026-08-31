@@ -1,16 +1,17 @@
-import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { hotelConfig } from '@/hotel.config';
+import { pageMetadata } from '@/lib/seo';
 import { IMG } from '@/lib/data';
 import PageHero from '@/components/PageHero';
 import SectionLabel from '@/components/SectionLabel';
 import { FadeUp, StaggerGrid, StaggerItem } from '@/components/Motion';
 
-export const metadata: Metadata = {
-  title: 'Weddings',
+export const metadata = pageMetadata({
+  title: 'Weddings on the East Lothian Coast',
   description: `Weddings at ${hotelConfig.name}: the whole house, the harbour lawn and the bay beyond it, for one wedding at a time.`,
-};
+  path: '/weddings',
+});
 
 const venues = [
   {

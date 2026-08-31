@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
 import { hotelConfig } from '@/hotel.config';
+import { pageMetadata } from '@/lib/seo';
 import { sanityFetch } from '@/lib/sanity';
 import { EXPERIENCES_QUERY } from '@/lib/queries';
 import { experiences as fallbackExperiences, IMG } from '@/lib/data';
@@ -9,10 +9,11 @@ import ExperienceCard from '@/components/ExperienceCard';
 import DirectBookingBanner from '@/components/DirectBookingBanner';
 import { FadeUp, StaggerGrid, StaggerItem } from '@/components/Motion';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Experiences',
   description: `Gin, water, rock and shore — the experiences at ${hotelConfig.name}, all arranged by the house, all starting at the front door.`,
-};
+  path: '/experiences',
+});
 
 export default async function ExperiencesPage() {
   const experiences = await sanityFetch<Experience[]>(EXPERIENCES_QUERY, {}, fallbackExperiences);

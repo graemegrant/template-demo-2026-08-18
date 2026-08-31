@@ -11,8 +11,16 @@ Start-to-launch checklist for a new client build. Works alongside
 - [ ] `npm install`, `npm run build` passes clean on the untouched template
 
 ## 2. Client identity
-- [ ] Rewrite `hotel.config.ts` fully — no leftover Craigmore House values
-- [ ] Re-skin the seven tokens in `tailwind.config.ts`
+- [ ] Rewrite `hotel.config.ts` fully — no leftover demo values
+- [ ] **NAP is real**: `location.street` / `locality` / `region` / `postalCode`
+      and `contact.phone` / `contact.phoneHref` (E.164) must be the client's
+      actual details, identical to what goes on Google Business Profile and
+      every citation. Placeholder NAP that ships breaks local SEO and hotel
+      rich results.
+- [ ] `seo.descriptor` / `seo.locationLabel` set for this client (drive the
+      homepage `<title>` and hero eyebrow)
+- [ ] Re-skin the seven tokens in `lib/tokens.ts` (not `tailwind.config.ts` —
+      it now reads from there, and so does OG-image generation)
 - [ ] Copy `CLIENT-ONBOARDING-TEMPLATE.md` to `/docs/clients/[hotel-slug].md`, fill it in
 
 ## 3. CMS
@@ -23,6 +31,11 @@ Start-to-launch checklist for a new client build. Works alongside
 
 ## 4. Booking + email
 - [ ] Set `NEXT_PUBLIC_BOOKING_ENGINE_URL` to the client's real booking engine
+- [ ] Set `NEXT_PUBLIC_SITE_URL` to the live domain (canonicals, OG URLs,
+      sitemap and JSON-LD all resolve against it — a wrong/blank value ships
+      canonicals pointing at the template's fallback domain)
+- [ ] Set `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` from Search Console (no longer
+      hardcoded in `app/layout.tsx`)
 - [ ] Set `RESEND_API_KEY`, `CONTACT_FORM_TO`, `CONTACT_FORM_FROM`
 - [ ] Test the contact form end-to-end (real email arrives)
 - [ ] Add `SANITY_PROJECT_ID` and a dedicated read-only `SANITY_API_TOKEN`
@@ -43,6 +56,8 @@ Start-to-launch checklist for a new client build. Works alongside
 ## 6. Real photography
 - [ ] All Unsplash/placeholder images swapped for the client's own photography
 - [ ] `next.config.ts` `remotePatterns` updated if new image hosts are used
+- [ ] `imageAlt` set on rooms / experiences / journal posts in Sanity where the
+      auto-generated fallback isn't descriptive enough
 
 ## 7. Deploy
 - [ ] Vercel project created, env vars set, domain connected

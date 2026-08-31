@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { hotelConfig } from '@/hotel.config';
 import { sanityFetch } from '@/lib/sanity';
+import { pageMetadata } from '@/lib/seo';
 import { EXPERIENCE_BY_SLUG_QUERY, EXPERIENCES_QUERY } from '@/lib/queries';
 import { experiences as fallbackExperiences } from '@/lib/data';
 import type { Experience } from '@/lib/types';
@@ -11,18 +12,27 @@ import SectionLabel from '@/components/SectionLabel';
 import { FadeUp, StaggerGrid, StaggerItem } from '@/components/Motion';
 import Link from 'next/link';
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 600;
+export function generateStaticParams() {
+  return fallbackExperiences.map((e) => ({ slug: e.slug }));
+}
 
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const exp = fallbackExperiences.find((e) => e.slug === slug);
+  const exp = await sanityFetch<Experience | null>(
+    EXPERIENCE_BY_SLUG_QUERY,
+    { slug },
+    fallbackExperiences.find((e) => e.slug === slug) ?? null,
+  );
   if (!exp) return { title: 'Experiences' };
-  return {
+  return pageMetadata({
     title: exp.name,
     description: `${exp.name} at ${hotelConfig.name} — ${exp.duration}, ${exp.price}.`,
-  };
+    path: `/experiences/${exp.slug}`,
+    image: `/experiences/${exp.slug}/opengraph-image`,
+  });
 }
 
 export default async function ExperienceDetailPage({ params }: Props) {
@@ -39,7 +49,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
 
   return (
     <>
-      <PageHero eyebrow={exp.category} title={exp.name} subtitle={`${exp.duration} · ${exp.price}`} image={exp.heroImage} />
+      <PageHero eyebrow={exp.category} title={exp.name} subtitle={`${exp.duration} · ${exp.price}`} image={exp.heroImage} imageAlt={exp.imageAlt} />
 
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         <div className="grid gap-16 lg:grid-cols-1fr-360">
