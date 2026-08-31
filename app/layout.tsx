@@ -84,10 +84,9 @@ const lodgingSchema = {
     latitude: hotelConfig.location.lat,
     longitude: hotelConfig.location.lng,
   },
-  // Derived from the featured testimonials. Before production, confirm these
-  // are genuine, verifiable guest reviews — a fabricated rating risks a
-  // manual action. Remove this block if reviews are not yet real.
-  ...(testimonials.length
+  // Off by default. Enable via hotelConfig.seo.publishAggregateRating only
+  // when the featured testimonials are genuine, verifiable reviews.
+  ...(hotelConfig.seo.publishAggregateRating && testimonials.length
     ? {
         aggregateRating: {
           '@type': 'AggregateRating',

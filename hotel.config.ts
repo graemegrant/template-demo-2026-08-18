@@ -40,6 +40,13 @@ export const hotelConfig = {
     descriptor: 'Boutique Hotel',
     /** Location phrase appended to titles and used in fallback meta. */
     locationLabel: 'North Berwick, East Lothian',
+    /**
+     * Emit an aggregateRating in the LodgingBusiness JSON-LD, derived from
+     * the featured testimonials. Only set true once those testimonials are
+     * genuine, verifiable guest reviews — a fabricated rating risks a
+     * Google manual action.
+     */
+    publishAggregateRating: false,
   },
   bookingEngineUrl: process.env.NEXT_PUBLIC_BOOKING_ENGINE_URL || '',
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.selkiebayhotel.com',
