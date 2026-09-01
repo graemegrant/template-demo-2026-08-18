@@ -67,13 +67,34 @@ Start-to-launch checklist for a new client build. Works alongside
 - [ ] Add a line to `fable-template`'s `CHANGELOG.md` only if this build
       surfaced a template-level fix worth cherry-picking back
 
-## 8. Handoff
+## 8. SEO pass (see SEO-PROCESS.md for the full workflow)
+- [ ] Content is in and photography is real before auditing (an audit on
+      Lorem/Unsplash placeholder content just reports the placeholders)
+- [ ] Run `/seo audit <staging-url>` — fix every **Critical** and **High**
+- [ ] Re-run `/seo audit <live-url>` once the real domain is connected and
+      `NEXT_PUBLIC_SITE_URL` points at it (canonical / OG / sitemap /
+      JSON-LD host issues only surface on the real domain)
+- [ ] Verify in view-source on 3 page types: `<link rel="canonical">` is
+      the live host, `og:image` resolves, JSON-LD has no placeholder NAP
+      and `checkinTime` is ISO (`"15:00:00"`, not `"3pm"`)
+- [ ] `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/opengraph-image` all
+      return 200 on the live host
+- [ ] Non-production hosts serve `X-Robots-Tag: noindex` (the
+      `middleware.ts` canonical-host guard — automatic once
+      `NEXT_PUBLIC_SITE_URL` is set)
+- [ ] Local: create + verify the Google Business Profile (primary category
+      `Hotel`), then work the citation list — see SEO-PROCESS.md
+- [ ] Submit the sitemap in Google Search Console + Bing Webmaster Tools
+
+## 9. Handoff
 - [ ] `docs/clients/[hotel-slug].md` fully filled in (this is the record
       of everything that varies for this client, for whoever touches the
       repo next)
+- [ ] Set a reminder to re-run `/seo audit` ~4 weeks post-launch, once
+      there is Search Console / CrUX field data to work with
 
 ---
 
-**This checklist is designed, not yet validated** — the first real
-client build should be treated as a test of this process, and this file
-should be corrected afterward based on what actually happened.
+**Validated once** against the Selkie Bay demo build (a full dry run of
+this process, Aug 2026). Correct this file whenever a real build surfaces
+something it missed.

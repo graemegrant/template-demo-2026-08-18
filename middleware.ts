@@ -1,9 +1,17 @@
 import { NextResponse, type NextRequest } from 'next/server';
 
 /**
- * Production host derived from NEXT_PUBLIC_SITE_URL. Only set when the env
- * var is configured explicitly — the hotel.config.ts fallback is not used
- * here, so an un-configured deployment keeps its default indexable behaviour.
+ * Canonical-host guard.
+ *
+ * Any deployment served on a host that is NOT the configured production
+ * domain (Vercel preview URLs, the raw `<project>.vercel.app` alias, a
+ * staging domain) gets `X-Robots-Tag: noindex` so it can never be indexed
+ * and compete with / cannibalise the real site.
+ *
+ * - No-op until `NEXT_PUBLIC_SITE_URL` is set (an un-configured build keeps
+ *   its default indexable behaviour — see NEW-CLIENT-CHECKLIST.md §4).
+ * - Set `ALLOW_ALL_HOSTS_INDEXABLE=true` to disable the guard entirely
+ *   (e.g. a staging domain the client genuinely wants crawlable).
  */
 const PROD_HOST = (() => {
   try {
@@ -15,15 +23,17 @@ const PROD_HOST = (() => {
   }
 })();
 
+const GUARD_ENABLED =
+  Boolean(PROD_HOST) && process.env.ALLOW_ALL_HOSTS_INDEXABLE !== 'true';
+
 export function middleware(req: NextRequest) {
   const res = NextResponse.next();
-  const host = req.headers.get('host') ?? '';
 
-  // Keep preview deployments and the raw *.vercel.app alias out of search
-  // indexes once the real production domain is known. No-op until
-  // NEXT_PUBLIC_SITE_URL is set.
-  if (PROD_HOST && host !== PROD_HOST) {
-    res.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  if (GUARD_ENABLED) {
+    const host = req.headers.get('host') ?? '';
+    if (host !== PROD_HOST) {
+      res.headers.set('X-Robots-Tag', 'noindex, nofollow');
+    }
   }
 
   return res;

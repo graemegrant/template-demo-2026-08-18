@@ -115,6 +115,15 @@ See `SANITY-SCHEMA.md` for the six content collections.
 
 - Animation performance budget: heavy motion measurably hurts mobile
   conversion — keep hero/scroll animations light on mobile viewports.
+  (`Motion.tsx` already suppresses scroll/entrance reveals on phone-width
+  viewports and under `prefers-reduced-motion`.)
+
+- SEO is part of the deliverable, not an afterthought. The template ships
+  SEO-complete; per-client SEO work and the `/seo audit` workflow are
+  documented in `SEO-PROCESS.md`. Structured data now uses `@type: "Hotel"`
+  (+ `HotelRoom`, `BlogPosting`, `BreadcrumbList`) — don't downgrade it.
+  Never add `FAQPage` schema (retired by Google) or a fabricated
+  `aggregateRating`.
   
 ## 6. Local Experiences
 
