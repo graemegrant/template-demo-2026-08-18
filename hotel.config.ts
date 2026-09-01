@@ -21,8 +21,10 @@ export const hotelConfig = {
     address: '1 Victoria Road, North Berwick, East Lothian, EH39 4JL',
     // Longer display label used in hero eyebrow / footer legal line.
     regionLabel: 'East Lothian, Scotland',
-    lat: 56.06,
-    lng: -2.72,
+    // Rooftop coordinates to 5 d.p. — feeds JSON-LD geo and the /location
+    // map pin. Placeholder precision until the real building is confirmed.
+    lat: 56.05972,
+    lng: -2.71833,
   },
   contact: {
     // Display form (spacing, national prefix in brackets).
@@ -34,6 +36,25 @@ export const hotelConfig = {
     instagram: 'https://instagram.com/selkiebayhotel',
     facebook: 'https://facebook.com/selkiebayhotel',
   },
+  /** Reception desk hours — display strings plus 24h forms for schema. */
+  reception: {
+    display: '7am – 11pm daily. Night porter on duty after hours.',
+    opens: '07:00',
+    closes: '23:00',
+  },
+  /** Guest-facing amenities — drives schema amenityFeature and can be
+   *  surfaced on-page. Keep to things that are actually true. */
+  amenities: [
+    'Free on-site parking',
+    'EV charging',
+    'Dog-friendly rooms',
+    'Restaurant',
+    'Free breakfast',
+    'Step-free access',
+    'Family rooms',
+    'Free Wi-Fi',
+  ],
+  petsAllowed: true,
   /** SEO copy that varies per client. */
   seo: {
     /** Short human descriptor used in the homepage <title>. */
@@ -53,13 +74,17 @@ export const hotelConfig = {
   rooms: 18,
   starRating: 4,
   priceRange: '£££',
+  // Display strings for the page; checkInISO / checkOutISO are the
+  // schema.org Time values (ISO 8601, "HH:MM:SS") — keep both in sync.
   checkIn: '3.00pm',
   checkOut: '11.00am',
+  checkInISO: '15:00:00',
+  checkOutISO: '11:00:00',
   trustItems: [
     'Best Rate Guaranteed',
     'No Booking Fees',
     'Complimentary Welcome Dram',
-    'Rated 5 Stars by Guests',
+    'Loved by Our Guests',
   ],
 };
 

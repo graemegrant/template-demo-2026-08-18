@@ -54,10 +54,11 @@ export default async function HomePage() {
               Eighteen rooms. One working harbour. No agenda.
             </h2>
             <p className="mt-6 font-body text-base font-light leading-body text-ink/80">
-              The Selkie Bay Hotel sits where the high street meets the harbour wall — a Victorian
-              townhouse rebuilt around the things that matter: open fires, deep baths,
-              a kitchen that answers to the tide rather than to fashion, and silence of a
-              quality you will want to take home.
+              The Selkie Bay Hotel is a four-star, eighteen-room boutique hotel on the harbour at
+              North Berwick, East Lothian — forty minutes from Edinburgh by road or rail. It sits
+              where the high street meets the harbour wall: a Victorian townhouse rebuilt around
+              the things that matter — open fires, deep baths, a kitchen that answers to the tide
+              rather than to fashion, and silence of a quality you will want to take home.
             </p>
             <Link
               href="/about"
