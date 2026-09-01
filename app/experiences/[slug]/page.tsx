@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { hotelConfig } from '@/hotel.config';
 import { sanityFetch } from '@/lib/sanity';
 import { pageMetadata } from '@/lib/seo';
+import { breadcrumbList } from '@/lib/schema';
 import { EXPERIENCE_BY_SLUG_QUERY, EXPERIENCES_QUERY } from '@/lib/queries';
 import { experiences as fallbackExperiences } from '@/lib/data';
 import type { Experience } from '@/lib/types';
@@ -47,9 +48,16 @@ export default async function ExperienceDetailPage({ params }: Props) {
   const all = await sanityFetch<Experience[]>(EXPERIENCES_QUERY, {}, fallbackExperiences);
   const related = all.filter((e) => e.slug !== exp.slug).slice(0, 3);
 
+  const breadcrumbs = breadcrumbList([
+    ['Home', '/'],
+    ['Experiences', '/experiences'],
+    [exp.name, `/experiences/${exp.slug}`],
+  ]);
+
   return (
     <>
-      <PageHero eyebrow={exp.category} title={exp.name} subtitle={`${exp.duration} · ${exp.price}`} image={exp.heroImage} imageAlt={exp.imageAlt} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
+      <PageHero eyebrow={`${exp.category} · ${hotelConfig.location.locality}`} title={exp.name} subtitle={`${exp.duration} · ${exp.price}`} image={exp.heroImage} imageAlt={exp.imageAlt} />
 
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         <div className="grid gap-16 lg:grid-cols-1fr-360">

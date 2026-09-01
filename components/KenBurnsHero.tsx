@@ -17,6 +17,7 @@ export default function KenBurnsHero({ image }: { image: unknown }) {
           alt={`${hotelConfig.name}, ${hotelConfig.location.regionLabel}`}
           fill
           priority
+          quality={68}
           sizes="100vw"
           className="object-cover"
         />

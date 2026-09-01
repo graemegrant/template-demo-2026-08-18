@@ -126,10 +126,10 @@ export default function Navbar() {
           <BookButton className="rounded-ctrl border border-gold bg-gold px-6 py-3 font-body text-2xs uppercase tracking-25 text-forest transition-colors duration-300 hover:bg-transparent hover:text-gold" />
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile toggle — 48×48 hit area (WCAG 2.5.8) */}
         <button
           type="button"
-          className="flex flex-col gap-7px p-2 lg:hidden"
+          className="-mr-2 flex size-12 flex-col items-center justify-center gap-7px lg:hidden"
           onClick={() => setMobileOpen((v) => !v)}
           aria-expanded={mobileOpen}
           aria-label="Toggle menu"

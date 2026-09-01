@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { hotelConfig } from '@/hotel.config';
 import { sanityFetch, imgSrc } from '@/lib/sanity';
 import { pageMetadata } from '@/lib/seo';
+import { breadcrumbList } from '@/lib/schema';
 import { JOURNAL_BY_SLUG_QUERY, FEATURED_ROOMS_QUERY } from '@/lib/queries';
 import { journalPosts as fallbackPosts, rooms as fallbackRooms } from '@/lib/data';
 import type { JournalPost, Room } from '@/lib/types';
@@ -66,19 +67,30 @@ export default async function JournalPostPage({ params }: Props) {
     image: [imgSrc(post.heroImage, 1200)],
     datePublished: post.publishedAt,
     dateModified: post.publishedAt,
-    author: { '@type': 'Person', name: post.author },
+    author: { '@type': 'Person', name: post.author, url: `${hotelConfig.siteUrl}/about` },
     publisher: {
       '@type': 'Organization',
       name: hotelConfig.name,
       url: hotelConfig.siteUrl,
-      logo: { '@type': 'ImageObject', url: `${hotelConfig.siteUrl}/icon.svg` },
+      logo: { '@type': 'ImageObject', url: `${hotelConfig.siteUrl}/icon` },
     },
-    mainEntityOfPage: `${hotelConfig.siteUrl}/journal/${post.slug}`,
+    url: `${hotelConfig.siteUrl}/journal/${post.slug}`,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${hotelConfig.siteUrl}/journal/${post.slug}`,
+    },
   };
+
+  const breadcrumbs = breadcrumbList([
+    ['Home', '/'],
+    ['Journal', '/journal'],
+    [post.title, `/journal/${post.slug}`],
+  ]);
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
       <PageHero eyebrow={post.category} title={post.title} subtitle={`${post.author} · ${formatDate(post.publishedAt)} · ${post.readingTime ?? ''}`} image={post.heroImage} imageAlt={post.imageAlt} />
 
       <section className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">

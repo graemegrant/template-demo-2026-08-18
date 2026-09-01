@@ -3,8 +3,8 @@ import Script from 'next/script';
 import { Cormorant_Garamond, Jost } from 'next/font/google';
 import { hotelConfig } from '@/hotel.config';
 import { palette } from '@/lib/tokens';
-import { IMG, testimonials } from '@/lib/data';
-import { imgSrc } from '@/lib/sanity';
+import { hotelSchema } from '@/lib/schema';
+import { MotionProvider } from '@/components/Motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
@@ -57,52 +57,7 @@ export const viewport: Viewport = {
   themeColor: palette.forest,
 };
 
-const lodgingSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'LodgingBusiness',
-  name: hotelConfig.name,
-  description: hotelConfig.description,
-  url: hotelConfig.siteUrl,
-  image: [imgSrc(IMG.heroHouse, 1200)],
-  telephone: hotelConfig.contact.phoneHref,
-  email: hotelConfig.contact.email,
-  priceRange: hotelConfig.priceRange,
-  starRating: { '@type': 'Rating', ratingValue: hotelConfig.starRating },
-  numberOfRooms: hotelConfig.rooms,
-  checkinTime: hotelConfig.checkIn,
-  checkoutTime: hotelConfig.checkOut,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: hotelConfig.location.street,
-    addressLocality: hotelConfig.location.locality,
-    addressRegion: hotelConfig.location.region,
-    postalCode: hotelConfig.location.postalCode,
-    addressCountry: hotelConfig.location.country,
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: hotelConfig.location.lat,
-    longitude: hotelConfig.location.lng,
-  },
-  // Off by default. Enable via hotelConfig.seo.publishAggregateRating only
-  // when the featured testimonials are genuine, verifiable reviews.
-  ...(hotelConfig.seo.publishAggregateRating && testimonials.length
-    ? {
-        aggregateRating: {
-          '@type': 'AggregateRating',
-          ratingValue:
-            Math.round(
-              (testimonials.reduce((sum, t) => sum + (t.rating || 0), 0) /
-                testimonials.length) *
-                10,
-            ) / 10,
-          reviewCount: testimonials.length,
-          bestRating: 5,
-        },
-      }
-    : {}),
-  sameAs: [hotelConfig.contact.instagram, hotelConfig.contact.facebook],
-};
+const lodgingSchema = hotelSchema();
 
 const ga4Id = process.env.NEXT_PUBLIC_GA4_ID;
 
@@ -125,12 +80,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </Script>
           </>
         )}
-        <BookingProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <CookieBanner />
-        </BookingProvider>
+        <MotionProvider>
+          <BookingProvider>
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <CookieBanner />
+          </BookingProvider>
+        </MotionProvider>
       </body>
     </html>
   );

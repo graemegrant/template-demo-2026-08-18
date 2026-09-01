@@ -8,8 +8,8 @@ import SectionLabel from '@/components/SectionLabel';
 import { FadeUp, StaggerGrid, StaggerItem } from '@/components/Motion';
 
 export const metadata = pageMetadata({
-  title: 'Dining',
-  description: `The dining room at ${hotelConfig.name}: harbour cooking by head chef Euan Tait — the rock, the tide and the walled garden, in season and in order.`,
+  title: `Dining & Restaurant in ${hotelConfig.location.locality}`,
+  description: `The dining room at ${hotelConfig.name}, ${hotelConfig.location.locality}: harbour cooking by head chef Euan Tait — the rock, the tide and the walled garden, in season and in order.`,
   path: '/dining',
 });
 
@@ -19,7 +19,7 @@ export default function DiningPage() {
   return (
     <>
       <PageHero
-        eyebrow="The dining room"
+        eyebrow={`The dining room · ${hotelConfig.location.locality}`}
         title="Cooking that answers to the tide"
         subtitle="One dining room, thirty covers, a kitchen fed by the rock, the harbour boats and a walled garden planted in 1868."
         image={IMG.dining1}

@@ -69,6 +69,9 @@ const config: Config = {
       spacing: {
         '7px': '7px',
         '9px': '9px',
+        // Height reserved for the slim mobile cookie bar, so MobileBookBar
+        // can sit directly above it while consent is pending.
+        cookiebar: '4.25rem',
       },
       maxWidth: {
         '20ch': '20ch',

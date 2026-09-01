@@ -22,7 +22,7 @@ export default async function RoomsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Stay"
+        eyebrow={`Stay · ${hotelConfig.location.locality}`}
         title="Rooms & suites"
         subtitle="Eighteen rooms, no two alike, every one facing something worth waking up to."
         image={IMG.room1}

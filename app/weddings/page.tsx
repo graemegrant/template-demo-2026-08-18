@@ -38,7 +38,7 @@ export default function WeddingsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Weddings"
+        eyebrow={`Weddings · ${hotelConfig.location.regionLabel}`}
         title="One wedding. The whole house."
         subtitle="We host a handful of weddings a year, never more than one at a time, and never two the same."
         image={IMG.wedding1}

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { hotelConfig } from '@/hotel.config';
 import { sanityFetch, imgSrc } from '@/lib/sanity';
 import { pageMetadata } from '@/lib/seo';
+import { breadcrumbList, HOTEL_ID } from '@/lib/schema';
 import { ROOM_BY_SLUG_QUERY, ROOMS_QUERY } from '@/lib/queries';
 import { rooms as fallbackRooms } from '@/lib/data';
 import type { Room } from '@/lib/types';
@@ -34,8 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   );
   if (!room) return { title: 'Rooms & Suites' };
   return pageMetadata({
-    title: `${room.name} — ${room.type} Room`,
-    description: `${room.name} at ${hotelConfig.name}: ${room.sqm} sqm, sleeps ${room.occupancy}, from £${room.rate} per night.`,
+    title: `${room.name} — ${room.type}, ${hotelConfig.location.locality}`,
+    description: `${room.name} at ${hotelConfig.name}, ${hotelConfig.location.locality}: ${room.sqm} sqm, sleeps ${room.occupancy}, from £${room.rate} per night.`,
     path: `/rooms/${room.slug}`,
     image: `/rooms/${room.slug}/opengraph-image`,
   });
@@ -64,7 +65,7 @@ export default async function RoomDetailPage({ params }: Props) {
     image: [imgSrc(room.heroImage, 1200)],
     occupancy: { '@type': 'QuantitativeValue', maxValue: room.occupancy },
     floorSize: { '@type': 'QuantitativeValue', value: room.sqm, unitCode: 'MTK' },
-    containedInPlace: { '@type': 'LodgingBusiness', name: hotelConfig.name, url: hotelConfig.siteUrl },
+    containedInPlace: { '@id': HOTEL_ID, '@type': 'Hotel', name: hotelConfig.name, url: hotelConfig.siteUrl },
     offers: {
       '@type': 'Offer',
       price: room.rate,
@@ -75,10 +76,17 @@ export default async function RoomDetailPage({ params }: Props) {
     },
   };
 
+  const breadcrumbs = breadcrumbList([
+    ['Home', '/'],
+    ['Rooms & Suites', '/rooms'],
+    [room.name, `/rooms/${room.slug}`],
+  ]);
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(roomSchema) }} />
-      <PageHero eyebrow={`${room.type} room`} title={room.name} subtitle={room.view} image={room.heroImage} imageAlt={room.imageAlt} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }} />
+      <PageHero eyebrow={`${room.type} room · ${hotelConfig.location.locality}`} title={room.name} subtitle={room.view} image={room.heroImage} imageAlt={room.imageAlt} />
 
       <section className="mx-auto max-w-7xl px-6 py-20 pb-32 lg:px-10 lg:py-28">
         <div className="grid gap-16 lg:grid-cols-1fr-360">

@@ -20,11 +20,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     sanityFetch<JournalPost[]>(JOURNAL_QUERY, {}, fallbackPosts),
   ]);
 
+  const now = new Date();
   const staticRoutes = [
     '', '/rooms', '/dining', '/experiences', '/weddings', '/offers',
     '/journal', '/about', '/contact', '/location', '/gift-vouchers',
   ].map((path) => ({
     url: `${base}${path}`,
+    lastModified: now,
     changeFrequency: 'weekly' as const,
     priority: path === '' ? 1 : 0.8,
   }));
@@ -33,11 +35,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...staticRoutes,
     ...rooms.map((r) => ({
       url: `${base}/rooms/${r.slug}`,
+      lastModified: now,
       changeFrequency: 'weekly' as const,
       priority: 0.7,
     })),
     ...experiences.map((e) => ({
       url: `${base}/experiences/${e.slug}`,
+      lastModified: now,
       changeFrequency: 'weekly' as const,
       priority: 0.6,
     })),

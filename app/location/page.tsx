@@ -11,13 +11,15 @@ export const metadata = pageMetadata({
   path: '/location',
 });
 
-const mapSrc = `https://www.google.com/maps?q=${hotelConfig.location.lat},${hotelConfig.location.lng}&z=11&output=embed`;
+const mapQuery = encodeURIComponent(`${hotelConfig.name}, ${hotelConfig.location.address}`);
+const mapSrc = `https://www.google.com/maps?q=${mapQuery}&z=15&output=embed`;
+const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${mapQuery}`;
 
 export default function LocationPage() {
   return (
     <>
       <PageHero
-        eyebrow="Finding us"
+        eyebrow={`Finding us · ${hotelConfig.location.locality}`}
         title="End of the road, start of the bay"
         subtitle={`${hotelConfig.location.address} — forty minutes from Edinburgh, and no reason at all to hurry.`}
         image={IMG.bay}
@@ -57,8 +59,16 @@ export default function LocationPage() {
               />
             </div>
             <p className="mt-4 font-body text-xs text-ink/60">
-              Postcode for satnavs: {hotelConfig.location.address.split(',').pop()?.trim()} — then follow the harbour signs, not the satnav’s despair.
+              Postcode for satnavs: {hotelConfig.location.postalCode} — then follow the harbour signs, not the satnav’s despair.
             </p>
+            <a
+              href={directionsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-block rounded-ctrl border border-forest px-7 py-3.5 font-body text-2xs uppercase tracking-25 text-forest transition-colors duration-300 hover:bg-forest hover:text-parchment"
+            >
+              Get directions
+            </a>
           </FadeUp>
         </div>
       </section>
