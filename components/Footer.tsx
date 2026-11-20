@@ -23,6 +23,8 @@ const visitLinks = [
 function NewsletterForm() {
   const [email, setEmail] = useState('');
   const [done, setDone] = useState(false);
+  // When the form appeared: the server rejects posts sent faster than a person types.
+  const [startedAt] = useState(() => Date.now());
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -30,7 +32,7 @@ function NewsletterForm() {
       await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type: 'newsletter', email, subject: 'Newsletter signup' }),
+        body: JSON.stringify({ type: 'newsletter', email, subject: 'Newsletter signup', startedAt }),
       });
     } catch {
       /* non-blocking */
