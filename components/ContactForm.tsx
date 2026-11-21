@@ -5,6 +5,8 @@ import { useState } from 'react';
 const SUBJECTS = ['General enquiry', 'Room booking', 'Dining reservation', 'Weddings & events', 'Gift vouchers', 'Press'];
 
 export default function ContactForm() {
+  // When the form appeared: the server rejects posts sent faster than a person types.
+  const [startedAt] = useState(() => Date.now());
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: SUBJECTS[0], message: '' });
 
@@ -19,7 +21,7 @@ export default function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, startedAt }),
       });
       setStatus(res.ok ? 'sent' : 'error');
     } catch {
